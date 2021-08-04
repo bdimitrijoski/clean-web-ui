@@ -1,7 +1,21 @@
 {
   "name": "clean-web-ui",
-  "version": "0.0.1",
+  "description": "Collection of small, simple and framework agnostic web components, written in pure Vanilla JavaScript.",
+  "version": "1.0.0",
+  "repository": "https://github.com/bdimitrijoski/clean-web-ui",
+  "author": "Branko Dimitrijoski",
+  "license": "MIT",
+  "keywords": [
+    "web components",
+    "vanilla js",
+    "application layout",
+    "framework agnostic"
+  ],
   "dependencies": {
-    "tslib": "^2.2.0"
+    "tslib": "^2.2.0",
+    "cwui-app-layout": "^1.0.0",
+    "cwui-page-layout": "^1.0.0",
+    "cwui-split-layout": "^1.0.0",
+    "cwui-toolbar": "^1.0.0"
   }
 }

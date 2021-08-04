@@ -1,7 +1,15 @@
 # Clean Web UI
 
-CleanWebUi is an open collection of small, simple and framework agnostic web components, written in pure Vanilla JavaScript.
-The components are independent of any framework such as Vue, Angular, React or any other dependencies, which makes them perfect for integrating with any framework.
+Have you ever find in a situation where you or your team needs to use a set of components, but you are blocked because of the framework that is used or introduce additional dependencies to your project?
+
+We often have moneky banana problem with frameworks. You wanted the banana but you get the gorilla with banana and the whole jungle.
+
+Aren't you feel that we are reinventing the wheel over and over again?
+We have to create the same components over and over again, so they can be compatible with the new framework that just came out. Many times, including UI framework to our project causes breaking changes, or simply you can not migrate to newer version because it requres newer version of the framework and you get stucked.
+
+CleanWebUI is an open collection of small, simple and framework agnostic web components, written in pure Vanilla JavaScript.
+
+The components are not having any other dependencies, which makes them perfect for integrating with any framework.
 
 ## Quick start
 
@@ -45,4 +53,5 @@ cwui.init();
 - [Page Layout](./libs/cwui-page-layout/README.md)
 - [Pagination](./libs/cwui-pagination/README.md)
 - [Split Layout](./libs/cwui-split-layout/README.md)
+- [Layouts](./libs/cwui-layouts/README.md)
 - [Toolbar](./libs/cwui-toolbar/README.md)
