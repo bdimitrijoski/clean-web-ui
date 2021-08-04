@@ -1,0 +1,17 @@
+{
+  "name": "cwui-toolbar",
+  "description": "Plain JS Toolbar Web component.",
+  "version": "1.0.0",
+  "repository": "https://github.com/bdimitrijoski/clean-web-ui",
+  "author": "Branko Dimitrijoski",
+  "license": "MIT",
+  "keywords": [
+    "web components",
+    "vanilla js",
+    "application layout",
+    "layout"
+  ],
+  "dependencies": {
+    "tslib": "^2.2.0"
+  }
+}

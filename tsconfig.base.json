@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "clean-web-ui": ["libs/clean-web-ui/src/index.ts"],
+      "cwui-app-layout": ["libs/cwui-app-layout/src/index.ts"],
+      "cwui-button": ["libs/cwui-button/src/index.ts"],
+      "cwui-form-layout": ["libs/cwui-form-layout/src/index.ts"],
+      "cwui-layouts": ["libs/cwui-layouts/src/index.ts"],
+      "cwui-page-layout": ["libs/cwui-page-layout/src/index.ts"],
+      "cwui-pagination": ["libs/cwui-pagination/src/index.ts"],
+      "cwui-split-layout": ["libs/cwui-split-layout/src/index.ts"],
+      "cwui-toolbar": ["libs/cwui-toolbar/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

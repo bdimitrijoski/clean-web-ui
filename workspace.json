@@ -1,0 +1,503 @@
+{
+  "version": 2,
+  "projects": {
+    "clean-web-ui": {
+      "projectType": "library",
+      "root": "libs/clean-web-ui",
+      "sourceRoot": "libs/clean-web-ui/src",
+      "prefix": "clean-web-ui",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:package",
+          "outputs": ["dist/libs/clean-web-ui"],
+          "options": {
+            "project": "libs/clean-web-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/clean-web-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/clean-web-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/clean-web-ui"],
+          "options": {
+            "jestConfig": "libs/clean-web-ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/clean-web-ui/src/**/*.ts", "libs/clean-web-ui/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "clean-web-ui-app": {
+      "projectType": "application",
+      "root": "apps/clean-web-ui-app",
+      "sourceRoot": "apps/clean-web-ui-app/src",
+      "prefix": "clean-web-ui",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/clean-web-ui-app",
+            "index": "apps/clean-web-ui-app/src/index.html",
+            "main": "apps/clean-web-ui-app/src/main.ts",
+            "polyfills": "apps/clean-web-ui-app/src/polyfills.ts",
+            "tsConfig": "apps/clean-web-ui-app/tsconfig.app.json",
+            "assets": [
+              "apps/clean-web-ui-app/src/favicon.ico",
+              "apps/clean-web-ui-app/src/assets",
+              {
+                "glob": "**/*.js",
+                "input": "node_modules/@webcomponents/webcomponentsjs",
+                "output": "webcomponents/"
+              }
+            ],
+            "styles": ["apps/clean-web-ui-app/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/clean-web-ui-app/src/environments/environment.ts",
+                  "with": "apps/clean-web-ui-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "clean-web-ui-app:build:production"
+            },
+            "development": {
+              "browserTarget": "clean-web-ui-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "clean-web-ui-app:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/clean-web-ui-app/src/**/*.ts", "apps/clean-web-ui-app/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/clean-web-ui-app"],
+          "options": {
+            "jestConfig": "apps/clean-web-ui-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "apps/clean-web-ui-app/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/clean-web-ui-app",
+            "config": {
+              "configFolder": "apps/clean-web-ui-app/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "cwui-app-layout": {
+      "projectType": "library",
+      "root": "libs/cwui-app-layout",
+      "sourceRoot": "libs/cwui-app-layout/src",
+      "prefix": "clean-web-ui",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:package",
+          "outputs": ["dist/libs/cwui-app-layout"],
+          "options": {
+            "project": "libs/cwui-app-layout/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/cwui-app-layout/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/cwui-app-layout/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/cwui-app-layout"],
+          "options": {
+            "jestConfig": "libs/cwui-app-layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/cwui-app-layout/src/**/*.ts", "libs/cwui-app-layout/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "cwui-button": {
+      "projectType": "library",
+      "root": "libs/cwui-button",
+      "sourceRoot": "libs/cwui-button/src",
+      "prefix": "clean-web-ui",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:package",
+          "outputs": ["dist/libs/cwui-button"],
+          "options": {
+            "project": "libs/cwui-button/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/cwui-button/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/cwui-button/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/cwui-button"],
+          "options": {
+            "jestConfig": "libs/cwui-button/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/cwui-button/src/**/*.ts", "libs/cwui-button/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "cwui-form-layout": {
+      "projectType": "library",
+      "root": "libs/cwui-form-layout",
+      "sourceRoot": "libs/cwui-form-layout/src",
+      "prefix": "clean-web-ui",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:package",
+          "outputs": ["dist/libs/cwui-form-layout"],
+          "options": {
+            "project": "libs/cwui-form-layout/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/cwui-form-layout/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/cwui-form-layout/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/cwui-form-layout"],
+          "options": {
+            "jestConfig": "libs/cwui-form-layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/cwui-form-layout/src/**/*.ts", "libs/cwui-form-layout/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "cwui-layouts": {
+      "projectType": "library",
+      "root": "libs/cwui-layouts",
+      "sourceRoot": "libs/cwui-layouts/src",
+      "prefix": "clean-web-ui",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:package",
+          "outputs": ["dist/libs/cwui-layouts"],
+          "options": {
+            "project": "libs/cwui-layouts/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/cwui-layouts/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/cwui-layouts/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/cwui-layouts"],
+          "options": {
+            "jestConfig": "libs/cwui-layouts/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/cwui-layouts/src/**/*.ts", "libs/cwui-layouts/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "cwui-page-layout": {
+      "projectType": "library",
+      "root": "libs/cwui-page-layout",
+      "sourceRoot": "libs/cwui-page-layout/src",
+      "prefix": "clean-web-ui",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:package",
+          "outputs": ["dist/libs/cwui-page-layout"],
+          "options": {
+            "project": "libs/cwui-page-layout/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/cwui-page-layout/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/cwui-page-layout/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/cwui-page-layout"],
+          "options": {
+            "jestConfig": "libs/cwui-page-layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/cwui-page-layout/src/**/*.ts", "libs/cwui-page-layout/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "cwui-pagination": {
+      "projectType": "library",
+      "root": "libs/cwui-pagination",
+      "sourceRoot": "libs/cwui-pagination/src",
+      "prefix": "clean-web-ui",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:package",
+          "outputs": ["dist/libs/cwui-pagination"],
+          "options": {
+            "project": "libs/cwui-pagination/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/cwui-pagination/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/cwui-pagination/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/cwui-pagination"],
+          "options": {
+            "jestConfig": "libs/cwui-pagination/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/cwui-pagination/src/**/*.ts", "libs/cwui-pagination/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "cwui-split-layout": {
+      "projectType": "library",
+      "root": "libs/cwui-split-layout",
+      "sourceRoot": "libs/cwui-split-layout/src",
+      "prefix": "clean-web-ui",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:package",
+          "outputs": ["dist/libs/cwui-split-layout"],
+          "options": {
+            "project": "libs/cwui-split-layout/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/cwui-split-layout/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/cwui-split-layout/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/cwui-split-layout"],
+          "options": {
+            "jestConfig": "libs/cwui-split-layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/cwui-split-layout/src/**/*.ts", "libs/cwui-split-layout/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "cwui-toolbar": {
+      "projectType": "library",
+      "root": "libs/cwui-toolbar",
+      "sourceRoot": "libs/cwui-toolbar/src",
+      "prefix": "clean-web-ui",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:package",
+          "outputs": ["dist/libs/cwui-toolbar"],
+          "options": {
+            "project": "libs/cwui-toolbar/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/cwui-toolbar/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/cwui-toolbar/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/cwui-toolbar"],
+          "options": {
+            "jestConfig": "libs/cwui-toolbar/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/cwui-toolbar/src/**/*.ts", "libs/cwui-toolbar/src/**/*.html"]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "clean-web-ui-app",
+  "cli": {
+    "defaultCollection": "@nrwl/web"
+  },
+  "generators": {
+    "@nrwl/web:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/web:library": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "none"
+    },
+    "@nrwl/angular:library": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "css"
+    }
+  }
+}

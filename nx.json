@@ -1,0 +1,61 @@
+{
+  "npmScope": "clean-web-ui",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e", "build-storybook"]
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "clean-web-ui": {
+      "tags": []
+    },
+    "clean-web-ui-app": {
+      "tags": []
+    },
+    "cwui-app-layout": {
+      "tags": []
+    },
+    "cwui-button": {
+      "tags": []
+    },
+    "cwui-form-layout": {
+      "tags": []
+    },
+    "cwui-layouts": {
+      "tags": []
+    },
+    "cwui-page-layout": {
+      "tags": []
+    },
+    "cwui-pagination": {
+      "tags": []
+    },
+    "cwui-split-layout": {
+      "tags": []
+    },
+    "cwui-toolbar": {
+      "tags": []
+    }
+  }
+}

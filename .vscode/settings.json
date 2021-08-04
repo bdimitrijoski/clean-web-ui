@@ -1,0 +1,12 @@
+{
+  "typescript.format.enable": false,
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": false,
+  "eslint.run": "onType",
+  "editor.formatOnSave": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": [
+    "source.fixAll.format",
+    "source.fixAll.eslint"
+  ]
+}
