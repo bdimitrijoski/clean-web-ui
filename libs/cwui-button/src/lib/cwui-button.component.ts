@@ -52,9 +52,7 @@ export class CwButton extends HTMLElement implements CleanWebUiButton {
     // clean
   }
 
-
-
-  attributeChangedCallback(attr: string, oldVal : any, newVal: any) {
+  attributeChangedCallback(attr: string, oldVal: any, newVal: any) {
     // if (CwButton.observedAttributes.indexOf(attr) !== -1) {
     (this._button as any)[attr] = newVal ? newVal : true;
 
@@ -64,7 +62,7 @@ export class CwButton extends HTMLElement implements CleanWebUiButton {
     // }
   }
 
-  focus() {
+  override focus() {
     this._button.focus();
   }
 

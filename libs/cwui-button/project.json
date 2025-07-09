@@ -1,0 +1,41 @@
+{
+  "name": "cwui-button",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "{projectRoot}/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options}.outputPath"],
+      "options": {
+        "outputPath": "dist/libs/cwui-button",
+        "generatePackageJson": true,
+        "includeDevDependenciesInPackageJson": false,
+        "skipOverrides": true,
+        "packageManager": false,
+        "sourceMap": false,
+        "skipTypeCheck": false,
+        "config": "{projectRoot}/vite.config.ts",
+        "tsConfig": "{projectRoot}/tsconfig.lib.json"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "command": "tsc -p tsconfig.lib.json --noEmit --pretty --customConditions ,"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "options": {
+        "config": "{projectRoot}/vite.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
