@@ -7,10 +7,11 @@ jobs:
   main:
     name: 'Setup'
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
-          filter: tree:0
           fetch-depth: 0
 
       - name: Setup Node
@@ -25,8 +26,8 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - run: npm ci --legacy-peer-deps
-      - uses: nrwl/nx-set-shas@v4
+        uses: nrwl/nx-set-shas@v4
 
       # Nx Affected runs only tasks affected by the changes in this PR/commit.
       - name: Run lint, test, and build on affected projects
-      - run: npx nx affected -t lint test build
+        run: npx nx affected -t lint test build
