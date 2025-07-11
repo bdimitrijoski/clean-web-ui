@@ -1,7 +1,6 @@
 name: CI
 
 on:
-  push:
   pull_request:
 
 jobs:
@@ -22,6 +21,15 @@ jobs:
 
       - name: Install Yarn
         run: npm install -g yarn
+
+      - name: Cache node_modules
+        id: cache-node-modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+          key: cache-node-modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: cache-node-modules-
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
