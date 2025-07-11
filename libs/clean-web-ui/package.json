@@ -12,10 +12,6 @@
     "framework agnostic"
   ],
   "dependencies": {
-    "tslib": "^2.2.0",
-    "cwui-app-layout": "^1.0.0",
-    "cwui-page-layout": "^1.0.0",
-    "cwui-split-layout": "^1.0.0",
-    "cwui-toolbar": "^1.0.0"
+    "tslib": "^2.2.0"
   }
 }
