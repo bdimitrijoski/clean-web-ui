@@ -23,6 +23,15 @@ export default defineConfig({
       ],
     }),
   ],
+  resolve: {
+    alias: {
+      'cwui-app-layout': resolve(__dirname, '../cwui-app-layout/src/index.ts'),
+      'cwui-toolbar': resolve(__dirname, '../cwui-toolbar/src/index.ts'),
+      'cwui-split-layout': resolve(__dirname, '../cwui-split-layout/src/index.ts'),
+      'cwui-page-layout': resolve(__dirname, '../cwui-page-layout/src/index.ts'),
+      'cwui-layouts': resolve(__dirname, '../cwui-layouts/src/index.ts'),
+    },
+  },
   build: {
     emptyOutDir: true,
     lib: {
