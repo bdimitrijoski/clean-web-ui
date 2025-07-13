@@ -3,7 +3,7 @@ import { init } from '../init';
 import { Meta, StoryObj } from '@storybook/web-components-vite';
 
 const meta: Meta<typeof CwSplitLayout> = {
-  title: 'Components/CwSplitLayout',
+  title: 'Components/Split Layout',
   component: 'cwui-split-layout',
   render: (_args, _context) => {
     init();

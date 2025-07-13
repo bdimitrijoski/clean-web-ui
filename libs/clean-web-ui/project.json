@@ -37,6 +37,21 @@
         "config": "{projectRoot}/vite.config.ts",
         "passWithNoTests": true
       }
+    },
+
+    "storybooks": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "configDir": "libs/clean-web-ui/.storybook",
+        "port": 6006
+      }
+    },
+    "build-storybook": {
+      "executor": "@nx/storybook:build",
+      "options": {
+        "configDir": "libs/clean-web-ui/.storybook",
+        "outputPath": "dist/storybook/clean-web-ui"
+      }
     }
   }
 }

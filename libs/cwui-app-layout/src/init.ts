@@ -1,5 +1,7 @@
 import { CwAppLayout } from './lib/cwui-app-layout.component';
 
 export function init() {
-  customElements.define(CwAppLayout.getType(), CwAppLayout);
+  if (!customElements.get(CwAppLayout.getType())) {
+    customElements.define(CwAppLayout.getType(), CwAppLayout);
+  }
 }

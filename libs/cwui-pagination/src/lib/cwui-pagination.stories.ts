@@ -3,7 +3,7 @@ import { init } from '../init';
 import { Meta, StoryObj } from '@storybook/web-components-vite';
 
 const meta: Meta<CleanWebUiPagination> = {
-  title: 'Components/CwPagination',
+  title: 'Components/Pagination',
   component: 'cwui-pagination',
   render: (args, _context) => {
     init();

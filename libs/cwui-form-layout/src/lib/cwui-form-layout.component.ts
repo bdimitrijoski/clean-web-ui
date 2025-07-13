@@ -1,5 +1,5 @@
 /* eslint-disable  */
-export interface ResponsiveStep {
+export interface CleanWebFormLayoutProps {
   minWidthInPixels: number;
   columns: number;
 }
@@ -8,7 +8,7 @@ export class CwFormLayout extends HTMLElement {
   private _shadowRoot;
   private _columnCount = 2;
   private _resizeObserver;
-  private _responsiveSteps: ResponsiveStep[] = [
+  private _responsiveSteps: CleanWebFormLayoutProps[] = [
     { minWidthInPixels: 0, columns: 1 },
     { minWidthInPixels: 500, columns: 2 },
     { minWidthInPixels: 700, columns: 3 },
@@ -18,7 +18,7 @@ export class CwFormLayout extends HTMLElement {
     return this._responsiveSteps;
   }
 
-  set responsiveSteps(steps: ResponsiveStep[]) {
+  set responsiveSteps(steps: CleanWebFormLayoutProps[]) {
     this._responsiveSteps = steps;
     this.selectResponsiveStep();
     this.updateStyles();
@@ -28,8 +28,8 @@ export class CwFormLayout extends HTMLElement {
     return ['columns'];
   }
 
-  static getType(){
-    return 'form-layout';
+  static getType() {
+    return 'cwui-form-layout';
   }
 
   constructor() {
@@ -51,7 +51,7 @@ export class CwFormLayout extends HTMLElement {
         }
       });
 
-      if (selectedStep!==null && (selectedStep as ResponsiveStep).columns !== this._columnCount) {
+      if (selectedStep !== null && (selectedStep as CleanWebFormLayoutProps).columns !== this._columnCount) {
         console.log(this.offsetWidth);
         this.selectResponsiveStep();
         this.updateStyles();
@@ -98,7 +98,7 @@ export class CwFormLayout extends HTMLElement {
     });
 
     if (selectedStep) {
-      this._columnCount = (selectedStep as ResponsiveStep).columns;
+      this._columnCount = (selectedStep as CleanWebFormLayoutProps).columns;
     }
   }
 
@@ -165,7 +165,10 @@ export class CwFormLayout extends HTMLElement {
           (child as HTMLElement).style.setProperty(marginEndProp, '0px');
         } else if (nextLineBreak) {
           const colspanRatio = (columnCount - col - colspan) / columnCount;
-          (child as HTMLElement).style.setProperty(marginEndProp, `calc(${colspanRatio * containerWidth}px + ${colspanRatio} * ${columnSpacing})`);
+          (child as HTMLElement).style.setProperty(
+            marginEndProp,
+            `calc(${colspanRatio * containerWidth}px + ${colspanRatio} * ${columnSpacing})`,
+          );
         } else {
           (child as HTMLElement).style.removeProperty(marginEndProp);
         }
