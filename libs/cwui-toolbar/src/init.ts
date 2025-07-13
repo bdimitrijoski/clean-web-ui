@@ -1,5 +1,7 @@
-import { CwToolbar } from "./lib/cwui-toolbar.component";
+import { CwToolbar } from './lib/cwui-toolbar.component';
 
-export function init(){
-  customElements.define(CwToolbar.getType(), CwToolbar);
+export function init() {
+  if (!customElements.get(CwToolbar.getType())) {
+    customElements.define(CwToolbar.getType(), CwToolbar);
+  }
 }
