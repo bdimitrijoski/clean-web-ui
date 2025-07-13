@@ -8,6 +8,6 @@
     "inlineSources": false,
     "types": []
   },
-  "exclude": ["src/**/*.spec.ts"],
+  "exclude": ["src/**/*.spec.ts", "**/*.stories.ts", "**/*.stories.js"],
   "include": ["src/**/*.ts"]
 }

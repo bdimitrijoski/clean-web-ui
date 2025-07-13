@@ -1,6 +1,9 @@
 export interface CleanWebUiButton extends HTMLElement {
   active: boolean;
   focus(): void;
+  type?: HTMLButtonElement['type'];
+  disabled?: HTMLButtonElement['disabled'];
+  theme?: 'primary' | 'raised' | 'outlined' | 'large' | 'small';
 }
 export class CwButton extends HTMLElement implements CleanWebUiButton {
   static get observedAttributes() {

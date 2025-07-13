@@ -1,5 +1,7 @@
-import { CwPageLayout } from "./lib/cwui-page-layout.component";
+import { CwPageLayout } from './lib/cwui-page-layout.component';
 
 export function init() {
-  customElements.define(CwPageLayout.getType(), CwPageLayout);
+  if (!customElements.get(CwPageLayout.getType())) {
+    customElements.define(CwPageLayout.getType(), CwPageLayout);
+  }
 }
