@@ -1,12 +1,11 @@
 import { CwToolbar } from './cwui-toolbar.component';
 import { init } from '../init';
-import { StoryFn, Meta, StoryObj } from '@storybook/web-components-vite';
+import { Meta, StoryObj } from '@storybook/web-components-vite';
 
 const meta: Meta<typeof CwToolbar> = {
   title: 'Components/Toolbar',
   component: 'cwui-toolbar',
-  render: (args, _context) => {
-    console.log(args);
+  render: (_args, _context) => {
     init();
     const continer = document.createElement('div');
     continer.innerHTML = `
@@ -37,8 +36,5 @@ export default meta;
 type Story = StoryObj;
 
 export const Primary: Story = {
-  args: {
-    primary: true,
-    label: 'Button',
-  },
+  args: {},
 };

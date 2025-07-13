@@ -1,5 +1,7 @@
-import { CwSplitLayout } from "./lib/cwui-split-layout.component";
+import { CwSplitLayout } from './lib/cwui-split-layout.component';
 
-export function init(){
-  customElements.define(CwSplitLayout.getType(), CwSplitLayout);
+export function init() {
+  if (!customElements.get(CwSplitLayout.getType())) {
+    customElements.define(CwSplitLayout.getType(), CwSplitLayout);
+  }
 }
